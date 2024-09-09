@@ -1,10 +1,11 @@
--- ÞEHÝRLERE GÖRE TOPLAM VERÝLEN SÝPARÝÞ MÝKTARLARI
+-- ÅžEHÄ°RLERE GÃ–RE VERÄ°LEN TOPLAM SÄ°PARÄ°Åž MÄ°KTARLARI
 -- REFERANS TABLOMUZ 'ORDERS' TABLOSUDUR
 SELECT
 CT.CITY AS SEHIRADI,
-SUM(OD.LINETOTAL) AS TOPLAMSIPARIS_TUTARI, --ORDERS tablosunda verilen sipariþler þehirler için syrý ayrý listelenmiþ durumdaydý. Örneðin 'X' þehrinde verilen sipariþler 'Y' adet iste bu 'Y' satýr kadar görüntüleniyordu. Amacýmýz doðrultusunda bu satýrlarý topladýk. 
+SUM(OD.LINETOTAL) AS TOPLAMSIPARIS_TUTARI, --ORDERS tablosunda verilen sipariÅŸler ÅŸehirler  iÃ§in ayrÄ± 
+  --ayrÄ± listelenmiÅŸ durumdaydi. Ã–rneÄŸin 'X' ÅŸehrinde verilen sipariÅŸler 'Y' adet ise bu 'Y' satir kadar gÃ¶rÃ¼ntÃ¼leniyordu. Amacimiz dogrultusunda bu satirlari topladik. 
 SUM(OD.AMOUNT) AS TOPLAMSIPARIS_ADEDI, 
-COUNT(OD.ID) AS TOPLAMSIPARIS_SAYISI --Burada satýr saydýracaðýmýz için 'COUNT' kullandýk.
+COUNT(OD.ID) AS TOPLAMSIPARIS_SAYISI --Burada satir saydiracagimiz iÃ§in "COUNT" kullandik.
 
 
 FROM ORDERS O
@@ -19,5 +20,5 @@ INNER JOIN ORDERDETAILS OD ON OD.ORDERID=O.ID
 INNER JOIN ITEMS ITM ON ITM.ID=OD.ITEMID
 
 
-GROUP BY CT.CITY --(aggregate fonksiyonlarý için 'groupby' kullandýk)
-ORDER BY CT.CITY -- ( þehirleri alfabetik olarak sýraladýk)
+GROUP BY CT.CITY --(aggregate fonksiyonlari iÃ§in 'groupby' kullandik)
+ORDER BY CT.CITY -- ( ÅŸehirleri alfabetik olarak siraladik)
